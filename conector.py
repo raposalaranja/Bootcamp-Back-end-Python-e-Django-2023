@@ -93,10 +93,27 @@ cursor = conexao.cursor()
 #8.Junção de Tabelas Crie uma segunda tabela chamada "compras" com os campos:
 # id(chaveprimária),cliente_id(chave estrangeira referenciando o id da tabela"clientes"),
 # produto(texto) e valor(real).
+
+#cursor.execute('CREATE TABLE compras(id INT PRIMARY KEY, cliente_id INT, produto VARCHAR(100), valor FLOAT, CONSTRAINT fk_ComprasCliente FOREIGN KEY (cliente_id) REFERENCES clientes (cliente_id) );')
+
+
 #Insira algumas compras associadas a clientes existentes na tabela"clientes". 
+
+#cursor.execute('INSERT INTO compras(id,cliente_id,produto,valor) VALUES(11,111,"roupa",400)')
+#cursor.execute('INSERT INTO compras(id,cliente_id,produto,valor) VALUES(22,222,"sapato",500)')
+#cursor.execute('INSERT INTO compras(id,cliente_id,produto,valor) VALUES(33,333,"celular",6000)')
+#cursor.execute('INSERT INTO compras(id,cliente_id,produto,valor) VALUES(44,444,"laptop",7000)')
+
+#dados = cursor.execute('SELECT * FROM compras')
+#for compras in dados:
+    #print(compras)
+
 #Escreva uma consulta para exibir o nome do cliente, o produto e o valor de cada compra.
 
-cursor.execute('CREATE TABLE compras(id INT PRIMARY KEY, cliente_id CONSTRAINT fk_ComprasCliente FOREIGN KEY (cliente_id) REFERENCES clientes (cliente_id), produto VARCHAR, valor FLOAT);')
+#dados = cursor.execute('SELECT Compras.cliente_id, CLIENTES.NOME, COMPRAS.PRODUTO, COMPRAS.VALOR FROM CLIENTES, COMPRAS WHERE compras.cliente_id = compras.produto AND compras.VALOR')
+#for compras in dados:
+    #print(compras)
+
 
 
 conexao.commit()
